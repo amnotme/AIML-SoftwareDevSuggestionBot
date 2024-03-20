@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+    <pattern>*</pattern>
+    <template>
+        <delay>2</delay>
+
+        I'm not sure I understood that. Could you rephrase your question or specify your interest? Here are some topics I'm familiar with:
+        
+        <button postback="SOFTWARE DEVELOPMENT">Software Development</button>
+        <button postback="DATA ANALYSIS">Data Analysis</button>
+        <button postback="CYBERSECURITY">Cybersecurity</button>
+        <button postback="NETWORK ENGINEERING">Network Engineering</button>
+        <button postback="UX UI DESIGN">UX UI Design</button>
+        <button postback="RESTART">Restart</button>
+    </template>
+    </category>
+    
+
+    <!--This is so we can restart the chatbot at any moment-->
+    <category>
+        <pattern>RESTART</pattern>
+        <template>
+            <delay>2</delay>
+
+            No problem! Let's start over. What would you like to know about? Here are some topics I can assist with:
+            <button postback="CAREER PATHS">Career Paths</button>
+            <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
+            <button postback="SKILLS DEVELOPMENT">Skills Development</button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>NO THANKS RESTART</pattern>
+        <template>
+            <delay>2</delay>
+            Gotcha! 
+            What would you like to know about? Here are some topics I can assist with:
+            <button postback="CAREER PATHS">Career Paths</button>
+            <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
+            <button postback="SKILLS DEVELOPMENT">Skills Development</button>
+        </template>
+    </category>
+    
+    
+    <!-- Categories for each career path -->
+    <category>
+        <pattern>CAREER PATHS</pattern>
+        <template>
+            <delay>2</delay>
+            Sure, I can help with that! Which area are you interested in? Please choose one of the options below:
+            <button postback="SOFTWARE DEVELOPMENT">Software Development</button>
+            <button postback="DATA ANALYSIS">Data Analysis</button>
+            <button postback="CYBERSECURITY">Cybersecurity</button>
+            <button postback="NETWORK ENGINEERING">Network Engineering</button>
+            <button postback="UX UI DESIGN">UX UI Design</button>
+        </template>
+    </category>
+        <category>
+            <pattern>SOFTWARE DEVELOPMENT</pattern>
+            <template>
+            <delay>2</delay>
+                Software developers design, build, and maintain software systems. It's a field that requires logical thinking, problem-solving, and a good understanding of programming languages. Are you interested in this field?
+                <reply>
+                    <text>YES</text>
+                    <postback>TELL ME MORE ABOUT SOFTWARE DEVELOPMENT</postback>
+                </reply>
+                
+                <reply>
+                    <text>NO</text>
+                    <postback>NO THANKS RESTART</postback>
+                </reply>
+            </template>
+        </category>
+        <!--response-->
+            <category>
+                <pattern>TELL ME MORE ABOUT SOFTWARE DEVELOPMENT</pattern>
+                <template>
+                    <delay>2</delay>
+                    <link>
+                        <text>Great, WGU offers degrees in Software Engineering that you might be interested in. Check it out!</text>
+                        <url>https://www.wgu.edu/online-it-degrees/software-engineering-bachelors-program.html</url>
+                    </link>
+                </template>
+            </category>
+        
+        <category>
+            <pattern>DATA ANALYSIS</pattern>
+            <template>
+            <delay>2</delay>
+                Data analysts collect, process, and perform statistical analyses of data. They help companies make informed decisions by identifying trends and patterns. It requires strong analytical skills and an understanding of data manipulation tools. Would you like to explore more about this?
+                <reply>
+                    <text>YES</text>
+                    <postback>TELL ME MORE ABOUT DATA ANALYSIS</postback>
+                </reply>
+                
+                <reply>
+                    <text>NO</text>
+                    <postback>NO THANKS RESTART</postback>
+                </reply>
+            </template>
+        </category>
+        <!--response-->
+            <category>
+                <pattern>TELL ME MORE ABOUT DATA ANALYSIS</pattern>
+                <template>
+                    <delay>2</delay>
+                    <link>
+                        <text>Awesome, WGU offers degrees in Data Analytics that you might find fun. Check it out!</text>
+                        <url>https://www.wgu.edu/online-it-degrees/data-analytics-bachelors-program.html</url>
+                    </link>
+                </template>
+            </category>
+        
+        <category>
+            <pattern>CYBERSECURITY</pattern>
+            <template>
+            <delay>2</delay>
+                Cybersecurity analysts protect systems from cyber threats. They monitor networks for security breaches and investigate when a violation occurs. A keen eye for detail and a solid understanding of security protocols are essential. Is this something that interests you?
+                <reply>
+                    <text>YES</text>
+                    <postback>TELL ME MORE ABOUT CYBERSECURITY</postback>
+                </reply>
+                
+                <reply>
+                    <text>NO</text>
+                    <postback>NO THANKS RESTART</postback>
+                </reply>
+            </template>
+        </category>
+        <!--response-->
+
+            <category>
+                <pattern>TELL ME MORE ABOUT CYBERSECURITY</pattern>
+                <template>
+                    <delay>2</delay>
+                    <link>
+                        <text>Superb, WGU offers degrees in Cybersecurity. Here's a link to it!</text>
+                        <url>https://www.wgu.edu/online-it-degrees/cybersecurity-information-assurance-masters-program.html</url>
+                    </link>
+                </template>
+            </category>
+        
+        
+        <category>
+            <pattern>NETWORK ENGINEERING</pattern>
+            <template>
+            <delay>2</delay>
+                Network engineers design, implement, and troubleshoot network infrastructure. They ensure that communication systems are robust, fast, and secure. Knowledge of network protocols and hardware is crucial. Does this align with your interests?
+                <reply>
+                    <text>YES</text>
+                    <postback>TELL ME MORE ABOUT NETWORK ENGINEERING</postback>
+                </reply>
+                
+                <reply>
+                    <text>NO</text>
+                    <postback>NO THANKS RESTART</postback>
+                </reply>
+            </template>
+        </category>
+        <!--response-->
+            <category>
+                <pattern>TELL ME MORE ABOUT NETWORK ENGINEERING</pattern>
+                <template>
+                    <delay>2</delay>
+                    <link>
+                        <text>Perfect, WGU offers degrees in Network Engineering. Feel free to look at them!</text>
+                        <url>https://www.wgu.edu/online-it-degrees/network-engineering-security-bachelors-program.html</url>
+                    </link>
+                </template>
+            </category>
+            
+        <category>
+            <pattern>UX UI DESIGN</pattern>
+            <template>
+            <delay>2</delay>
+                UX/UI designers improve user satisfaction by making products more usable and accessible. They focus on the design and functionality of product interfaces. Creativity and empathy are key skills in this field. Would you like to delve deeper into this area?
+                <reply>
+                    <text>YES</text>
+                    <postback>TELL ME MORE ABOUT UX UI DESIGN</postback>
+                </reply>
+                
+                <reply>
+                    <text>NO</text>
+                    <postback>NO THANKS RESTART</postback>
+                </reply>
+            </template>
+        </category>
+        <!--response-->
+            <category>
+                <pattern>TELL ME MORE ABOUT UX UI DESIGN</pattern>
+                <template>
+                    <delay>2</delay>
+                    <link>
+                        <text>Sounds good, WGU offers certifications in web development with a UI focus that you can check out!</text>
+                        <url>https://www.wgu.edu/online-it-degrees/certificates/front-end-web-development.html</url>
+                    </link>
+                </template>
+            </category>
+    
+    <category>
+        <pattern>EDUCATIONAL REQUIREMENTS</pattern>
+        <template>
+            <delay>2</delay>
+            Educational requirements for a career in software development typically include a Bachelor's degree in Computer Science, Software Engineering, or a related field. Key subjects often covered include:
+            <ul>
+                <li>Programming Fundamentals</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Software Engineering Principles</li>
+                <li>Database Management</li>
+                <li>Computer Networks</li>
+            </ul>
+            Some roles may require knowledge of specific programming languages or tools. It's also beneficial to engage in continuous learning and stay updated with the latest technology trends. Would you like to explore degree programs or certifications?
+            <button postback="DEGREE PROGRAMS">Degree Programs</button>
+            <button postback="CERTIFICATIONS">Certifications</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+        <category>
+            <pattern>DEGREE PROGRAMS</pattern>
+            <template>
+            <delay>2</delay>
+                Degree programs in Computer Science or Software Engineering are available at many universities worldwide. These programs often include both theoretical and practical components to prepare students for the industry. Consider visiting websites like https://www.wgu.edu or consulting academic advisors to find a program that fits your goals and background.
+            </template>
+        </category>
+        
+        <category>
+            <pattern>CERTIFICATIONS</pattern>
+            <template>
+            <delay>2</delay>
+                Certifications can complement your education and demonstrate your skills to employers. Popular certifications for software developers include:
+                <ul>
+                    <li>Microsoft Certified: Azure Developer Associate</li>
+                    <li>Oracle Certified Professional, Java SE Programmer</li>
+                    <li>CompTIA Security+</li>
+                    <li>Amazon Web Services (AWS) Certified Developer</li>
+                </ul>
+                These certifications often require passing an exam and may have prerequisites. Check the specific certification body's website for details.
+            </template>
+        </category>
+    <category>
+        <pattern>SKILLS DEVELOPMENT</pattern>
+        <template>
+            Developing the right skills is crucial in the tech industry, particularly in software development. Here are some key skills and areas where you should focus:
+            <ul>
+                <li><b>Technical Skills:</b> Proficiency in programming languages such as Java, Python, or C#. Understanding of data structures, algorithms, and software design principles.</li>
+                <li><b>Version Control:</b> Familiarity with version control systems like Git helps manage changes to project codebases efficiently.</li>
+                <li><b>Database Management:</b> Knowledge of database technologies and ability to interact with databases using SQL.</li>
+                <li><b>Web Development:</b> Skills in web technologies like HTML, CSS, and JavaScript for front-end development, and server-side languages for back-end development.</li>
+                <li><b>Soft Skills:</b> Problem-solving, teamwork, and effective communication are just as important as technical abilities.</li>
+            </ul>
+            Continual learning is key in this rapidly evolving field. Online platforms like Coursera, Udacity, or freeCodeCamp offer courses to help develop these skills. Would you like to explore specific courses or resources?
+            <buttons>
+                <button postback="EXPLORE COURSES">Explore Courses</button>
+                <button postback="RESTART">Restart</button>
+            </buttons>
+        </template>
+    </category>
+        <category>
+            <pattern>EXPLORE COURSES</pattern>
+            <template>
+                Great choice! Here are some platforms where you can find courses to develop your software development skills:
+                <ul>
+                    <li><a href="https://www.coursera.org/">Coursera</a>: Offers a wide range of programming and software development courses.</li>
+                    <li><a href="https://www.udacity.com/">Udacity</a>: Known for its tech-focused nanodegree programs.</li>
+                    <li><a href="https://www.freecodecamp.org/">freeCodeCamp</a>: Provides free coding courses and is great for beginners.</li>
+                    <li><a href="https://www.codecademy.com/">Codecademy</a>: Offers interactive coding lessons.</li>
+                </ul>
+                These resources can help you build and enhance your skills in software development. Start exploring today!
+            </template>
+        </category>
+
+
+</aiml>
