@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+    <!--Entry point-->
     <category>
-    <pattern>*</pattern>
-    <template>
-        <delay>2</delay>
-
-        I'm not sure I understood that. Could you rephrase your question or specify your interest? Here are some topics I'm familiar with:
-        
-        <button postback="SOFTWARE DEVELOPMENT">Software Development</button>
-        <button postback="DATA ANALYSIS">Data Analysis</button>
-        <button postback="CYBERSECURITY">Cybersecurity</button>
-        <button postback="NETWORK ENGINEERING">Network Engineering</button>
-        <button postback="UX UI DESIGN">UX UI Design</button>
-        <button postback="RESTART">Restart</button>
-    </template>
+        <pattern>HELLO</pattern>
+        <template>
+            Hello! I am your Career Guidance Assistant. I can help you explore different technology-focused career paths such as Software Development, Data Analysis, Cybersecurity, Network Engineering, and UX/UI Design. Please select a topic or type a question to get started.
+            <button postback="CAREER PATHS">Career Paths</button>
+            <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
+            <button postback="SKILLS DEVELOPMENT">Skills Development</button>
+        </template>
+    </category>
+    
+    <!--catch all. When a response doesn't fit one of the pre-defined templates, the chatbot will provide the following options-->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <delay>2</delay>
+    
+            I'm not sure I understood that. Could you rephrase your question or specify your interest? Here are some topics I'm familiar with:
+            
+            <button postback="SOFTWARE DEVELOPMENT">Software Development</button>
+            <button postback="DATA ANALYSIS">Data Analysis</button>
+            <button postback="CYBERSECURITY">Cybersecurity</button>
+            <button postback="NETWORK ENGINEERING">Network Engineering</button>
+            <button postback="UX UI DESIGN">UX UI Design</button>
+            <button postback="RESTART">Restart</button>
+        </template>
     </category>
     
 
@@ -29,7 +41,8 @@
             <button postback="SKILLS DEVELOPMENT">Skills Development</button>
         </template>
     </category>
-
+    
+    <!--Generic reponse to restart after answering "no" to reply continuation-->
     <category>
         <pattern>NO THANKS RESTART</pattern>
         <template>
@@ -56,6 +69,8 @@
             <button postback="UX UI DESIGN">UX UI Design</button>
         </template>
     </category>
+    
+        <!--SOFTWARE DEVELOPMENT-->
         <category>
             <pattern>SOFTWARE DEVELOPMENT</pattern>
             <template>
@@ -84,6 +99,7 @@
                 </template>
             </category>
         
+        <!--DATA ANALYSIS-->
         <category>
             <pattern>DATA ANALYSIS</pattern>
             <template>
@@ -112,6 +128,7 @@
                 </template>
             </category>
         
+        <!--CYBERSECURITY-->
         <category>
             <pattern>CYBERSECURITY</pattern>
             <template>
@@ -129,7 +146,6 @@
             </template>
         </category>
         <!--response-->
-
             <category>
                 <pattern>TELL ME MORE ABOUT CYBERSECURITY</pattern>
                 <template>
@@ -141,7 +157,7 @@
                 </template>
             </category>
         
-        
+        <!--NETWORK ENGINEERING-->
         <category>
             <pattern>NETWORK ENGINEERING</pattern>
             <template>
@@ -169,7 +185,8 @@
                     </link>
                 </template>
             </category>
-            
+        
+        <!--UX UI DESIGN-->
         <category>
             <pattern>UX UI DESIGN</pattern>
             <template>
@@ -198,6 +215,7 @@
                 </template>
             </category>
     
+    <!--Education requirements. Operations and responses.-->
     <category>
         <pattern>EDUCATIONAL REQUIREMENTS</pattern>
         <template>
@@ -216,6 +234,7 @@
             <button postback="RESTART">Restart</button>
         </template>
     </category>
+        <!--response-->
         <category>
             <pattern>DEGREE PROGRAMS</pattern>
             <template>
@@ -223,7 +242,7 @@
                 Degree programs in Computer Science or Software Engineering are available at many universities worldwide. These programs often include both theoretical and practical components to prepare students for the industry. Consider visiting websites like https://www.wgu.edu or consulting academic advisors to find a program that fits your goals and background.
             </template>
         </category>
-        
+        <!--response-->
         <category>
             <pattern>CERTIFICATIONS</pattern>
             <template>
@@ -238,6 +257,8 @@
                 These certifications often require passing an exam and may have prerequisites. Check the specific certification body's website for details.
             </template>
         </category>
+    
+    <!--Skills development. Operations and responses.-->
     <category>
         <pattern>SKILLS DEVELOPMENT</pattern>
         <template>
@@ -250,12 +271,11 @@
                 <li><b>Soft Skills:</b> Problem-solving, teamwork, and effective communication are just as important as technical abilities.</li>
             </ul>
             Continual learning is key in this rapidly evolving field. Online platforms like Coursera, Udacity, or freeCodeCamp offer courses to help develop these skills. Would you like to explore specific courses or resources?
-            <buttons>
-                <button postback="EXPLORE COURSES">Explore Courses</button>
-                <button postback="RESTART">Restart</button>
-            </buttons>
+            <button postback="EXPLORE COURSES">Explore Courses</button>
+            <button postback="RESTART">Restart</button>
         </template>
     </category>
+        <!--response-->
         <category>
             <pattern>EXPLORE COURSES</pattern>
             <template>
