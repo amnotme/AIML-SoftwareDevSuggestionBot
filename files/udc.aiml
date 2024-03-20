@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
     <!--Entry point-->
+
+    <!--Entry point-->
     <category>
         <pattern>HELLO</pattern>
         <template>
-            Hello! I am your Career Guidance Assistant. I can help you explore different technology-focused career paths such as Software Development, Data Analysis, Cybersecurity, Network Engineering, and UX/UI Design. Please select a topic or type a question to get started.
-            <button postback="CAREER PATHS">Career Paths</button>
-            <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
-            <button postback="SKILLS DEVELOPMENT">Skills Development</button>
+            Hello! I am your Career Guidance Assistant. I can suggest different technology-focused career paths based on your interests and strengths. Let's get started! Are you interested in discovering careers that might be a good fit for you?
+            <button postback="DISCOVER CAREERS">Discover Careers</button>
+            <button postback="RESTART">Restart</button>
         </template>
     </category>
-    
+
+    <!-- Discover careers based on interests -->
+    <category>
+        <pattern>DISCOVER CAREERS</pattern>
+        <template>
+            <delay>2</delay>
+            Awesome! Tell me a bit about what interests you. Are you more fascinated by:
+
+            <button postback="BUILDING SOFTWARE">Building software</button>
+            <button postback="ANALYZING DATA">Analyzing data</button>
+            <button postback="PROTECTING SYSTEMS">Protecting systems</button>
+            <button postback="MANAGING NETWORKS">Managing networks</button>
+            <button postback="DESIGNING INTERFACES">Designing interfaces</button>
+        </template>
+    </category>
+
     <!--catch all. When a response doesn't fit one of the pre-defined templates, the chatbot will provide the following options-->
     <category>
         <pattern>*</pattern>
         <template>
             <delay>2</delay>
-    
+
             I'm not sure I understood that. Could you rephrase your question or specify your interest? Here are some topics I'm familiar with:
-            
+
             <button postback="SOFTWARE DEVELOPMENT">Software Development</button>
             <button postback="DATA ANALYSIS">Data Analysis</button>
             <button postback="CYBERSECURITY">Cybersecurity</button>
@@ -27,7 +43,7 @@
             <button postback="RESTART">Restart</button>
         </template>
     </category>
-    
+
 
     <!--This is so we can restart the chatbot at any moment-->
     <category>
@@ -36,26 +52,78 @@
             <delay>2</delay>
 
             No problem! Let's start over. What would you like to know about? Here are some topics I can assist with:
+            <button postback="DISCOVER CAREERS">Discover Careers</button>
             <button postback="CAREER PATHS">Career Paths</button>
             <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
             <button postback="SKILLS DEVELOPMENT">Skills Development</button>
         </template>
     </category>
-    
+
     <!--Generic reponse to restart after answering "no" to reply continuation-->
     <category>
         <pattern>NO THANKS RESTART</pattern>
         <template>
             <delay>2</delay>
-            Gotcha! 
+            Gotcha!
             What would you like to know about? Here are some topics I can assist with:
+            <button postback="DISCOVER CAREERS">Discover Careers</button>
             <button postback="CAREER PATHS">Career Paths</button>
             <button postback="EDUCATIONAL REQUIREMENTS">Educational Requirements</button>
             <button postback="SKILLS DEVELOPMENT">Skills Development</button>
         </template>
     </category>
-    
-    
+
+    <!--Discover career responses-->
+    <category>
+        <pattern>BUILDING SOFTWARE</pattern>
+        <template>
+            <delay>2</delay>
+            It sounds like you might enjoy a career in Software Development. This field involves designing, building, and maintaining software systems. It requires logical thinking, problem-solving, and a good understanding of programming languages.
+            <button postback="TELL ME MORE ABOUT SOFTWARE DEVELOPMENT">Tell me more about software development</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ANALYZING DATA</pattern>
+        <template>
+            <delay>2</delay>
+            You might be interested in Data Analysis! Data analysts help companies make informed decisions by identifying trends and patterns. This role requires strong analytical skills and an understanding of data manipulation tools.
+            <button postback="TELL ME MORE ABOUT DATA ANALYSIS">Tell me more about data analysis</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>PROTECTING SYSTEMS</pattern>
+        <template>
+            <delay>2</delay>
+            It looks like you might be interested in Cybersecurity! Cybersecurity analysts are vital as they protect systems from cyber threats. This role requires a keen eye for detail and a strong understanding of security protocols.
+            <button postback="TELL ME MORE ABOUT CYBERSECURITY">Tell me more about cybersecurity</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>MANAGING NETWORKS</pattern>
+        <template>
+            <delay>2</delay>
+            Network Engineering could be your path! Network engineers design, implement, and manage the infrastructure that keeps data flowing. They work on a variety of tasks from setting up networks to troubleshooting and securing them against attacks.
+            <button postback="TELL ME MORE ABOUT NETWORK ENGINEERING">Tell me more about network engineering</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>DESIGNING INTERFACES</pattern>
+        <template>
+            <delay>2</delay>
+            Are you passionate about creating engaging user experiences? UX/UI Design might be the perfect fit! This field involves improving user satisfaction and making products more accessible and enjoyable.
+            <button postback="TELL ME MORE ABOUT UX UI DESIGN">Tell me more about ux ui design</button>
+            <button postback="RESTART">Restart</button>
+        </template>
+    </category>
+
     <!-- Categories for each career path -->
     <category>
         <pattern>CAREER PATHS</pattern>
@@ -67,9 +135,10 @@
             <button postback="CYBERSECURITY">Cybersecurity</button>
             <button postback="NETWORK ENGINEERING">Network Engineering</button>
             <button postback="UX UI DESIGN">UX UI Design</button>
+            <button postback="RESTART">Restart</button>
         </template>
     </category>
-    
+
         <!--SOFTWARE DEVELOPMENT-->
         <category>
             <pattern>SOFTWARE DEVELOPMENT</pattern>
@@ -80,7 +149,7 @@
                     <text>YES</text>
                     <postback>TELL ME MORE ABOUT SOFTWARE DEVELOPMENT</postback>
                 </reply>
-                
+
                 <reply>
                     <text>NO</text>
                     <postback>NO THANKS RESTART</postback>
@@ -96,9 +165,10 @@
                         <text>Great, WGU offers degrees in Software Engineering that you might be interested in. Check it out!</text>
                         <url>https://www.wgu.edu/online-it-degrees/software-engineering-bachelors-program.html</url>
                     </link>
+                    <button postback="RESTART">Restart</button>
                 </template>
             </category>
-        
+
         <!--DATA ANALYSIS-->
         <category>
             <pattern>DATA ANALYSIS</pattern>
@@ -109,7 +179,7 @@
                     <text>YES</text>
                     <postback>TELL ME MORE ABOUT DATA ANALYSIS</postback>
                 </reply>
-                
+
                 <reply>
                     <text>NO</text>
                     <postback>NO THANKS RESTART</postback>
@@ -125,9 +195,10 @@
                         <text>Awesome, WGU offers degrees in Data Analytics that you might find fun. Check it out!</text>
                         <url>https://www.wgu.edu/online-it-degrees/data-analytics-bachelors-program.html</url>
                     </link>
+                    <button postback="RESTART">Restart</button>
                 </template>
             </category>
-        
+
         <!--CYBERSECURITY-->
         <category>
             <pattern>CYBERSECURITY</pattern>
@@ -138,7 +209,7 @@
                     <text>YES</text>
                     <postback>TELL ME MORE ABOUT CYBERSECURITY</postback>
                 </reply>
-                
+
                 <reply>
                     <text>NO</text>
                     <postback>NO THANKS RESTART</postback>
@@ -154,9 +225,10 @@
                         <text>Superb, WGU offers degrees in Cybersecurity. Here's a link to it!</text>
                         <url>https://www.wgu.edu/online-it-degrees/cybersecurity-information-assurance-masters-program.html</url>
                     </link>
+                    <button postback="RESTART">Restart</button>
                 </template>
             </category>
-        
+
         <!--NETWORK ENGINEERING-->
         <category>
             <pattern>NETWORK ENGINEERING</pattern>
@@ -167,7 +239,7 @@
                     <text>YES</text>
                     <postback>TELL ME MORE ABOUT NETWORK ENGINEERING</postback>
                 </reply>
-                
+
                 <reply>
                     <text>NO</text>
                     <postback>NO THANKS RESTART</postback>
@@ -183,9 +255,10 @@
                         <text>Perfect, WGU offers degrees in Network Engineering. Feel free to look at them!</text>
                         <url>https://www.wgu.edu/online-it-degrees/network-engineering-security-bachelors-program.html</url>
                     </link>
+                    <button postback="RESTART">Restart</button>
                 </template>
             </category>
-        
+
         <!--UX UI DESIGN-->
         <category>
             <pattern>UX UI DESIGN</pattern>
@@ -196,7 +269,7 @@
                     <text>YES</text>
                     <postback>TELL ME MORE ABOUT UX UI DESIGN</postback>
                 </reply>
-                
+
                 <reply>
                     <text>NO</text>
                     <postback>NO THANKS RESTART</postback>
@@ -212,9 +285,10 @@
                         <text>Sounds good, WGU offers certifications in web development with a UI focus that you can check out!</text>
                         <url>https://www.wgu.edu/online-it-degrees/certificates/front-end-web-development.html</url>
                     </link>
+                    <button postback="RESTART">Restart</button>
                 </template>
             </category>
-    
+
     <!--Education requirements. Operations and responses.-->
     <category>
         <pattern>EDUCATIONAL REQUIREMENTS</pattern>
@@ -255,9 +329,10 @@
                     <li>Amazon Web Services (AWS) Certified Developer</li>
                 </ul>
                 These certifications often require passing an exam and may have prerequisites. Check the specific certification body's website for details.
+                <button postback="RESTART">Restart</button>
             </template>
         </category>
-    
+
     <!--Skills development. Operations and responses.-->
     <category>
         <pattern>SKILLS DEVELOPMENT</pattern>
@@ -287,6 +362,7 @@
                     <li><a href="https://www.codecademy.com/">Codecademy</a>: Offers interactive coding lessons.</li>
                 </ul>
                 These resources can help you build and enhance your skills in software development. Start exploring today!
+                <button postback="RESTART">Restart</button>
             </template>
         </category>
 </aiml>
